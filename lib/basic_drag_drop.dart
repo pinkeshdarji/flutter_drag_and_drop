@@ -24,59 +24,44 @@ class _BasicDragDropState extends State<BasicDragDrop> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Draggable<String>(
-                  // Data is the value this Draggable stores.
-                  data: _color,
-                  child: Container(
-                    height: 150.0,
-                    width: 150.0,
-                    color: Colors.redAccent,
-                    child: const Center(
-                      child: Text(
-                        'Drag me',
-                        textScaleFactor: 2,
-                      ),
-                    ),
+                // Data is the value this Draggable stores.
+                data: _color,
+                child: Container(
+                  height: 120.0,
+                  width: 120.0,
+                  child: Center(
+                    child: Image.asset('assets/images/tomato.png'),
                   ),
-                  feedback: Material(
-                    child: Container(
-                      height: 170.0,
-                      width: 170.0,
-                      decoration: BoxDecoration(
-                        color: Colors.redAccent,
-                      ),
-                      child: const Center(
-                        child: Text(
-                          'Dragging',
-                          textScaleFactor: 2,
-                        ),
-                      ),
-                    ),
+                ),
+                feedback: Container(
+                  height: 120.0,
+                  width: 120.0,
+                  child: Center(
+                    child: Image.asset('assets/images/tomato.png'),
                   ),
-                  childWhenDragging: Container(
-                    height: 150.0,
-                    width: 150.0,
-                    color: Colors.grey,
-                    child: const Center(
-                      child: Text(
-                        'I was here',
-                        textScaleFactor: 2,
-                      ),
-                    ),
+                ),
+                childWhenDragging: Container(
+                  height: 120.0,
+                  width: 120.0,
+                  child: Center(
+                    child: Image.asset('assets/images/tomato_greyed.png'),
                   ),
-                  //axis: Axis.vertical,
-                  onDragCompleted: () {
-                    scaffoldKey.currentState
-                        ?.showSnackBar(SnackBar(content: Text("Correct!")));
-                  },
-                  onDragStarted: () {
-                    showSnackBarGlobal(context, 'Drag start');
-                  },
-                  onDragEnd: (dragDetails) {
-                    showSnackBarGlobal(context, 'Drag end');
-                  },
-                  onDraggableCanceled: (velocity, offset) {
-                    showSnackBarGlobal(context, 'Drag cancelled');
-                  }),
+                ),
+                //axis: Axis.vertical,
+                // onDragCompleted: () {
+                //   scaffoldKey.currentState
+                //       ?.showSnackBar(SnackBar(content: Text("Correct!")));
+                // },
+                // onDragStarted: () {
+                //   showSnackBarGlobal(context, 'Drag start');
+                // },
+                // onDragEnd: (dragDetails) {
+                //   showSnackBarGlobal(context, 'Drag end');
+                // },
+                // onDraggableCanceled: (velocity, offset) {
+                //   showSnackBarGlobal(context, 'Drag cancelled');
+                // },
+              ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.15,
               ),
@@ -96,14 +81,13 @@ class _BasicDragDropState extends State<BasicDragDrop> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.all(Radius.circular(12)),
                       child: Container(
-                        height: 200,
-                        width: 200,
-                        color: _isDropped ? Colors.redAccent : null,
+                        height: 300,
+                        width: 300,
                         child: Center(
-                            child: Text(
-                          !_isDropped ? 'Drop here' : 'Dropped',
-                          textScaleFactor: 2,
-                        )),
+                          child: Image.asset(_isDropped
+                              ? 'assets/images/bowl_full.png'
+                              : 'assets/images/bowl.png'),
+                        ),
                       ),
                     ),
                   );
