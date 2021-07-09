@@ -63,13 +63,6 @@ class _LongPressDragState extends State<LongPressDrag> {
                     ),
                   ),
                 ),
-                //axis: Axis.vertical,
-                // onDragCompleted: (){
-                //   scaffoldKey.currentState?.showSnackBar(SnackBar(content: Text("Correct!")));
-                // },
-                // onDragEnd: ,
-                // onDraggableCanceled: ,
-                // onDragStarted: ,
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.15,
@@ -102,23 +95,12 @@ class _LongPressDragState extends State<LongPressDrag> {
                     ),
                   );
                 },
-                // onWillAccept: (data) {
-                //   return true;
-                // },
                 onAccept: (data) {
                   debugPrint('hi $data');
                   setState(() {
                     showSnackBarGlobal(context, 'Dropped successfully!');
                     _isDropped = true;
                   });
-                },
-                onMove: (dragtarget) {
-                  //print('I am over droppable area');
-                  // ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                  //     content: Text(
-                  //   'Yay! A SnackBar!',
-                  //   textScaleFactor: 2,
-                  // )));
                 },
                 onWillAccept: (data) {
                   return data == _color;

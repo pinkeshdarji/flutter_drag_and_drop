@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_drag_drop/puzzle.dart';
+
+import 'basic_drag_drop.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations(
-      [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]).then(
+      [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]).then(
     (_) => runApp(MyApp()),
   );
 }
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(primarySwatch: Colors.teal, brightness: Brightness.dark),
-      home: Puzzle(),
+      home: BasicDragDrop(),
     );
   }
 }
